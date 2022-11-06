@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
 const Slick = () => {
 
   const settings = {
@@ -16,11 +15,10 @@ const Slick = () => {
   return (
     <>
     
-    
       <Container>
       <h1>Slick Test</h1>
         <SlideWrap>
-          <Slider {...settings}>
+          <StyledSlider {...settings}>
             <div>
               1
               <div className="boxWrap">
@@ -33,7 +31,7 @@ const Slick = () => {
             <div>2</div>
             <div>3</div>
             <div>4</div>
-          </Slider>
+          </StyledSlider>
         </SlideWrap>
       </Container>
     </>
@@ -45,7 +43,8 @@ export default Slick;
 const Container = styled.div`
   width: 800px;
   height: 600px;
-  background-color: bisque;
+  background-color: white;
+  border: 3px solid #7A90E2; 
   margin: 0 auto;
   margin-bottom: 30px;
   text-align: center;
@@ -59,7 +58,6 @@ const Container = styled.div`
     height: 400px;
     background-color: #7A90E2;
     
-
     & .boxWrap {
       width: fit-content;
       margin: 0 auto;
@@ -86,7 +84,6 @@ const Container = styled.div`
     height: 400px;
     background-color: #E5636F;
   }
-
   
   & div:nth-child(5) {
     width: 600px;
@@ -101,4 +98,25 @@ const SlideWrap = styled.div`
   display: flex;
   margin: 0 auto;
   margin-top: 40px;
+`
+
+const StyledSlider = styled(Slider)`
+
+  & .slick-prev {
+    width: 15px;
+    height: 15px;
+    color: red;
+
+    ::before {
+      content: url(./images/angle-left-solid.svg);
+    }
+  }
+
+  & .slick-next {
+    width: 15px;
+    height: 15px;
+    ::before {
+      content: url(./images/angle-right-solid.svg);
+    }
+  }
 `
