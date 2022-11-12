@@ -35,21 +35,27 @@ const MapTest = () => {
       text: "무기력",
     },
   ])
-  console.log(color.color);
   
   return (
     <>
-      Test 예제입니다
-      {color.map((item) => (
-        <ColorBox key={item.id}>
-          <div style={{backgroundColor: item.color}}></div> {item.text}
-        </ColorBox>
-      ))}
+      <Container>
+        <h3>Test 예제입니다</h3>
+        {color.map((item) => (
+          <ColorBox key={item.id}>
+            <div style={{backgroundColor: item.color}}></div> {item.text}
+          </ColorBox>
+        ))}
+      </Container>
     </>
   )
 }
 
 export default MapTest;
+
+const Container = styled.div`
+  margin: 0 auto;
+  width: fit-content;
+`
 
 const ColorBox = styled.div`
   margin-left: 30px;
@@ -60,6 +66,7 @@ const ColorBox = styled.div`
   gap: 10px;
 
   & div {
+    display: flex;
     width: 30px;
     height: 30px;
   }
