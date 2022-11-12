@@ -46,7 +46,7 @@ const SlickMap = () => {
     infinite: true,
     rows: 2,
     slidesPerRow: 2,
-    centerMode : true,
+    // centerMode : true,
   }
 
   return (
@@ -57,9 +57,10 @@ const SlickMap = () => {
             {list.map((item) => (
               <div className="listBox" key={item.id}>
                 <div className="listItem"style={{backgroundColor: item.color}}>
-                  {item.id}
+                  {item.date}
+                  <div>{item.title}</div>
                 </div>
-                <div>{item.date}</div>
+                
               </div>
               ))}
             </Slider>
