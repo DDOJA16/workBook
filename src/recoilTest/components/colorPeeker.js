@@ -1,48 +1,26 @@
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil"
 import { recoilColorState } from "../recoilStates/recoilColorState";
-import { recoilThemeState } from "../recoilStates/recoilThemeState"
 import { Color } from "../resource/color";
 import styled from "styled-components";
 
 
 const ColorPeeker = () => {
 
-  const [recoilTheme, setRecoilTheme] = useRecoilState(recoilThemeState);
   const [recoilColor, setRecoilColor] = useRecoilState(recoilColorState);
 
-  const defaultColor = { ...recoilColor };
-  const tmpState = { ...recoilTheme };
-  const tmpColor = { ...recoilColor };
+  const defaultColor = { ...recoilColor };  // 복사
+  const colorArray = Object.values(Color);  // resource/color.js의 색상코드(values) 배열화
 
-  console.log(recoilColor);
-
-  const colorArray = Object.values(Color);
-
-  const [themeState, setThemeState] = useState(colorArray);
   const [colorState, setColorState] = useState(defaultColor.color);
-
-  
-  useEffect(() => {
-    if (tmpState.theme === "Color") {
-      setThemeState(colorArray);
-      onColorChangeHandler(Color[0],0);
-    }
-  },[recoilTheme]);
-
-  useEffect(() => {
-    setColorState(tmpColor.color);
-  }, [recoilColor]);
-
-  console.log(tmpColor);
 
   const onColorChangeHandler = (color) => {
     setColorState(color);
-  }
+  };
 
   useEffect(() => {
     const changedColor = {
-      color: colorState,
+      color: colorState
     };
     setRecoilColor(changedColor);
   }, [colorState]);
@@ -51,7 +29,7 @@ const ColorPeeker = () => {
     <>
       <Container>
         <ColorPallete>
-          {themeState.map((color, index) => (
+          {colorArray.map((color, index) => (
             <ColorCircle key={color} background={color}>
               <label htmlFor={color}></label>
               <input
@@ -64,37 +42,33 @@ const ColorPeeker = () => {
           ))}
         </ColorPallete>
         
-      </Container>
-      
       <ColorBox background={colorState}>
       </ColorBox>
+      </Container>
+
     </>
   );
 };
 
 export default ColorPeeker;
 
-
-const ColorBox = styled.div`
-  width: 700px;
-  height: 350px;
-  background-color: ${(props) => props.background};
-  margin: 0 auto;
-`;
-
-
 const Container = styled.div`
-  width: 600px;
-  height: 80px;
+  width: 1080px;
+  height: 900px;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
   padding-top: 20px;
   background-color: white;
 `;
 
+
 const ColorPallete = styled.ul`
   display: flex;
+  width: 300px;
+  height: 80px;
+  margin: 0 auto;
+  justify-content: center;
+  padding-top: 20px;
+  background-color: white;
   gap: 15px;
 `;
 
@@ -118,4 +92,11 @@ const ColorCircle = styled.li`
   & > input {
     display: none;
   }
+`;
+
+const ColorBox = styled.div`
+  width: 500px;
+  height: 350px;
+  background-color: ${(props) => props.background};
+  margin: 0 auto;
 `;

@@ -1,10 +1,10 @@
-import { atom } from "recoil";
+  import { atom } from "recoil";
 
-const initialState = {
-  color: "#C4C4C4",
-};
+  const initialState = {
+    color: "#C4C4C4",
+  };
 
-export const recoilColorState = atom({
-  key: "recoilColorState",
-  default: initialState
-});
+  export const recoilColorState = atom({
+    key: "recoilColorState",
+    default: initialState
+  });

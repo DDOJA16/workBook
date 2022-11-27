@@ -2,8 +2,7 @@ import SidebarItem from "./sideBarItem";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCalendar } from "@fortawesome/free-regular-svg-icons"
-import { faBook, faListUl } from "@fortawesome/free-solid-svg-icons"
+import { faBook, faEllipsis, faFillDrip, faComputerMouse } from "@fortawesome/free-solid-svg-icons"
 
 const Sidebar = () => {
 
@@ -12,36 +11,35 @@ const Sidebar = () => {
   const menus = [
     { 
       id: "page1",
-      name: "Slick Test", 
-      path: "/threepage",
-      img: "./images/calendar.svg",
-      icon: <FontAwesomeIcon icon={faCalendar}/>
+      name: "slick", 
+      path: "/slickpage",
+      icon: <FontAwesomeIcon icon={faEllipsis}/>
     },
     { 
       id: "page2",
-      name: "checklist", 
-      path: "/fourpage", 
+      name: "colorPeeker", 
+      path: "/colorPeeker", 
       img: "./images/list-check.svg",
-      icon: <FontAwesomeIcon icon={faListUl}/>
+      icon: <FontAwesomeIcon icon={faFillDrip}/>
     },
     { 
       id: "page3",
-      name: "diarybook", 
-      path: "/fivepage",
-      icon: <FontAwesomeIcon icon={faBook}/>
+      name: "drag and drop", 
+      path: "/DND",
+      icon: <FontAwesomeIcon icon={faComputerMouse}/>
     },
     { 
       id: "page4",
-      name: "diarybook", 
-      path: "/colorPeeker",
+      name: "...", 
+      path: "/fivepage",
       icon: <FontAwesomeIcon icon={faBook}/>
     },
   ]
 
   const isColor = 
-    pathName === "/threepage" ? "#E5636F"
-    : ( pathName === "/fourpage" ? "#7A90E2"
-    : pathName === "/fivepage" ? "#FFCCCC" : '')
+    pathName === "/slickpage" ? "#E5636F"
+    : ( pathName === "/colorPeeker" ? "#7A90E2"
+    : pathName === "/DND" ? "#FFCCCC" : "#C4C4C4")
 
   return (
     <>
@@ -73,7 +71,7 @@ const SidebarContainer = styled.div`
   border: 2px solid aqua;
 
   & .iconWrap {
-    width: 80%;
+    width: 250px;
     height: 50px;
     margin: 20px auto;
     border-radius: 15px;
@@ -81,6 +79,5 @@ const SidebarContainer = styled.div`
 `
 
 const SLink = styled(Link)`
-  text-decoration: none;
   color: #545454;
 `
