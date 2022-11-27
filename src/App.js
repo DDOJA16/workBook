@@ -1,21 +1,23 @@
 import './App.css';
+import Slick from './slick/_index';
 import MapTest from './test/mapTest';
-import Slick from './test/sideBarTest/pages/slick';
-import SlickMap from './test/slickMap';
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import Sidebar from './test/sideBarTest/sideBar';
 import styled from 'styled-components';
+import ColorPeeker from './recoilTest/components/colorPeeker';
+import GlobalSytle from './css/globalStyle';
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <GlobalSytle/>
         <Container>
           <Sidebar/>
           <Routes>
-            <Route path="/threepage" element={<Slick/>}/>
-            <Route path="/fourpage" element={<SlickMap/>}/>
+            <Route path="/slickpage" element={<Slick/>}/>
             <Route path="/fivepage" element={<MapTest/>}/>
+            <Route path="/colorPeeker" element={<ColorPeeker/>}/>
           </Routes>
         </Container>
       </BrowserRouter>

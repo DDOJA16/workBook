@@ -57,10 +57,11 @@ const SlickMap = () => {
             {list.map((item) => (
               <div className="listBox" key={item.id}>
                 <div className="listItem"style={{backgroundColor: item.color}}>
-                  {item.date}
-                  <div>{item.title}</div>
+                  <div className="content">
+                    <p>{item.date}</p>
+                    <p>{item.title}</p>
+                  </div>
                 </div>
-                
               </div>
               ))}
             </Slider>
@@ -83,16 +84,36 @@ const MapTest = styled.div`
   text-align: center;
   overflow: hidden;
 
+  & h1 {
+  padding: 30px 0;
+
+  }
+
   & .listBox {
     margin: 10px auto;
     width: 200px;
     height: 200px;
+    
   }
 
   & .listItem {
     width: 200px;
     height: 200px;
     margin: 0 auto;
+
+    & .content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      
+      p {
+        margin: 0 auto;
+      }
+    }
   }
 
 `

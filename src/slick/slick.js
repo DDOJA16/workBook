@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const Slick = () => {
+const SlickTest = () => {
 
   const settings = {
     dots: true,
@@ -14,7 +14,6 @@ const Slick = () => {
 
   return (
     <>
-    
       <Container>
       <h1>Slick Test</h1>
         <SlideWrap>
@@ -38,7 +37,7 @@ const Slick = () => {
   )
 }
 
-export default Slick;
+export default SlickTest;
 
 const Container = styled.div`
   width: 800px;
@@ -120,3 +119,7 @@ const StyledSlider = styled(Slider)`
     }
   }
 `
+
+
+
+
