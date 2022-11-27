@@ -11,21 +11,29 @@ const Sidebar = () => {
 
   const menus = [
     { 
+      id: "page1",
       name: "Slick Test", 
       path: "/threepage",
       img: "./images/calendar.svg",
       icon: <FontAwesomeIcon icon={faCalendar}/>
     },
     { 
+      id: "page2",
       name: "checklist", 
       path: "/fourpage", 
       img: "./images/list-check.svg",
       icon: <FontAwesomeIcon icon={faListUl}/>
     },
     { 
+      id: "page3",
       name: "diarybook", 
       path: "/fivepage",
-      img: "./images/book-solid.svg",
+      icon: <FontAwesomeIcon icon={faBook}/>
+    },
+    { 
+      id: "page4",
+      name: "diarybook", 
+      path: "/colorPeeker",
       icon: <FontAwesomeIcon icon={faBook}/>
     },
   ]
@@ -35,14 +43,13 @@ const Sidebar = () => {
     : ( pathName === "/fourpage" ? "#7A90E2"
     : pathName === "/fivepage" ? "#FFCCCC" : '')
 
-
   return (
     <>
       <SidebarContainer>
-        {menus.map((menu, index) => {
+        {menus.map((menu) => {
           return (
             <div className="iconWrap">
-              <SLink to={menu.path} key={index}>
+              <SLink to={menu.path} key={menu.id}>
                 <SidebarItem
                   menu={menu}
                   isActive={pathName === menu.path ? true : false}
@@ -68,7 +75,6 @@ const SidebarContainer = styled.div`
   & .iconWrap {
     width: 80%;
     height: 50px;
-    background-color: antiquewhite;
     margin: 20px auto;
     border-radius: 15px;
   }

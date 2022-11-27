@@ -5,6 +5,7 @@ import SlickMap from './test/slickMap';
 import { BrowserRouter, Routes, Route } from "react-router-dom"; 
 import Sidebar from './test/sideBarTest/sideBar';
 import styled from 'styled-components';
+import ColorPeeker from './recoilTest/components/colorPeeker';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/threepage" element={<Slick/>}/>
             <Route path="/fourpage" element={<SlickMap/>}/>
             <Route path="/fivepage" element={<MapTest/>}/>
+            <Route path="/colorPeeker" element={<ColorPeeker/>}/>
           </Routes>
         </Container>
       </BrowserRouter>
